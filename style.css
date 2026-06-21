@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, rgba(255, 234, 153, 0.45), transparent 28%),
+                radial-gradient(circle at bottom right, rgba(255, 210, 100, 0.35), transparent 22%),
+                linear-gradient(180deg, #f8d57e 0%, #e2af3d 40%, #c6911f 100%);
+    color: #1b1200;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+header {
+    position: relative;
+    text-align: center;
+    padding: 60px 20px 40px;
+    overflow: hidden;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.15), transparent 40%);
+    pointer-events: none;
+}
+
+header h1 {
+    position: relative;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
+}
+
+header p {
+    position: relative;
+    font-size: 1.1rem;
+    max-width: 760px;
+    margin: 0 auto;
+    color: #d7e1ff;
+    line-height: 1.7;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+    padding: 40px 24px 60px;
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.25);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 34px 85px rgba(0, 0, 0, 0.30);
+    border-color: rgba(255, 255, 255, 0.24);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.04);
+}
+
+.card h2 {
+    margin: 18px 24px 12px;
+    font-size: 1.4rem;
+    color: #ffeb8c;
+    letter-spacing: 0.02em;
+}
+
+.card p {
+    margin: 0 24px 24px;
+    color: #d7dfea;
+    line-height: 1.7;
+    font-size: 0.98rem;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 50px 16px 30px;
+    }
+
+    .gallery {
+        gap: 20px;
+        padding: 30px 16px 50px;
+    }
+}
+
+@media (max-width: 540px) {
+    header h1 {
+        font-size: 2.25rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .card {
+        border-radius: 22px;
+    }
+}
